@@ -1,6 +1,5 @@
-整体结构
-
 父项目
+
 	爬取、分发	distribute
 	浏览	browsing	
 	持久化	persistence
@@ -9,17 +8,20 @@
 
 
 distribute
+
 	请求代理ip，通过activeMq发送给browsing
-  接受http传来的csdn用户名，通过activeMq发送给browsing
-  发送csdn用户名，
+	接受http传来的csdn用户名，通过activeMq发送给browsing
+	发送csdn用户名，
 	定时器
 		每天定时爬取固定网站，分发给browsing
 
 browsing
+
 	mq监听器接收到csdn用户名后，根据账号爬取博客列表，保存数据库
 	mq监听器接收到ip和端口号后，浏览数据库中状态为浏览的博客
 
 persistence
+	
 	负责操作数据库
 
 
