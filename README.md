@@ -1,12 +1,12 @@
 # page_views_parent
 刷csdn流量，分布式部署版
 
-======================整体结构======================
+#整体结构
 父项目
 	爬取、分发	distribute
 	浏览	browsing	
 	持久化	persistence
-	公用接口和实体	interface
+	公用接口和实体	api
 
 
 
@@ -24,8 +24,7 @@ browsing
 persistence
 	负责操作数据库
 
-interface
-	公用接口
+
 ===============================================================
 
 
