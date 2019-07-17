@@ -27,6 +27,7 @@ public class ActiveMQListener {
 //		blogUserService.save(csdnUserName);
 		//保存所有Blog的Url
 
+
 	}
 
     public static void main(String[] args) throws Exception {
