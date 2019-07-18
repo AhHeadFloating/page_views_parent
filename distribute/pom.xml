@@ -6,7 +6,7 @@
         <groupId>com.miaoyunhan</groupId>
         <artifactId>page_views_parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../../page_views_parent/pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.miaoyunhan.page_views</groupId>
     <artifactId>distribute</artifactId>
