@@ -3,14 +3,28 @@ package com.miaoyunhan.page_views.browsing.crawl;
 import cn.edu.hfut.dmic.webcollector.model.CrawlDatums;
 import cn.edu.hfut.dmic.webcollector.model.Page;
 import cn.edu.hfut.dmic.webcollector.plugin.rocks.BreadthCrawler;
+import com.miaoyunhan.api.entity.Article;
+import com.miaoyunhan.api.entity.BlogUser;
+import com.miaoyunhan.api.service.ArticleService;
+import com.miaoyunhan.api.service.BlogUserService;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Date;
 
 /**
  * 文章爬虫
  */
 public class CsdnAticleCrawl extends BreadthCrawler {
+    /*@Autowired
+    private BlogUserService blogUserService;
+
+    @Autowired
+    private ArticleService articleService;*/
+
     private int count = 0;
     private String blogUserName;
+    private BlogUser blogUser;
     public CsdnAticleCrawl(String crawlPath, boolean autoParse,String blogUserName) throws Exception {
         super(crawlPath, autoParse);
         this.blogUserName = blogUserName;
@@ -20,6 +34,11 @@ public class CsdnAticleCrawl extends BreadthCrawler {
             this.addSeed("https://blog.csdn.net/" + blogUserName + "/article/list/" + i);
         }
         this.addRegex("https://blog.csdn.net/" + blogUserName + "/article/list/.*");
+        blogUser = new BlogUser();
+        blogUser.setBlogUserName(blogUserName);
+        blogUser.setCreateTime(new Date());
+        blogUser.setBlogType(1);
+//        blogUserService.insertSelective(blogUser);
     }
 
     @Override
@@ -31,9 +50,12 @@ public class CsdnAticleCrawl extends BreadthCrawler {
                 String matchUrl = "https://blog.csdn.net/"+blogUserName+"/article/details/.*";
                 String href = elements.get(i).attr("href");
                 if(href.matches(matchUrl)){
+//                    page.select();
                     count++;
                     System.out.println(elements.get(i).attr("href"));
                     System.out.println("==========="+count+"=============");
+//                    new Article(null,,blogUser.getBlogUserId(),href);
+//                    articleService.insertSlective();
                 }
             }
         }
@@ -41,13 +63,4 @@ public class CsdnAticleCrawl extends BreadthCrawler {
 
     }
 
-    public static void main(String[] args) {
-        CsdnAticleCrawl csdnAticleCrawl = null;
-        try {
-            csdnAticleCrawl = new CsdnAticleCrawl("crawl",false,"yetaodiao");
-            csdnAticleCrawl.start(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
