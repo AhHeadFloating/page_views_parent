@@ -3,15 +3,17 @@ package com.miaoyunhan.api.entity;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@Table(name = "blog_user_name")
-public class BlogUser {
+@Table(name = "blog_user")
+public class BlogUser implements Serializable {
     @Id
-    @GeneratedValue(generator = "JDBC")//返回自增长主键
+    @GeneratedValue(generator = "JDBC")
     private Long blogUserId;
     private String blogUserName;
     private Integer blogType;

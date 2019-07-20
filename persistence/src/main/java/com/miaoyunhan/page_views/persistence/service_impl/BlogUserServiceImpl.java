@@ -4,15 +4,16 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.miaoyunhan.api.entity.BlogUser;
 import com.miaoyunhan.api.service.BlogUserService;
 import com.miaoyunhan.page_views.persistence.mapper.BlogUserMpper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@com.alibaba.dubbo.config.annotation.Service(version = "1.0.0",timeout = 10000,interfaceClass = BlogUserService.class)
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000)
 public class BlogUserServiceImpl implements BlogUserService {
 
-    @Reference(version = "1.0.0",check = false)
+    @Autowired
     private BlogUserMpper blogUserMpper;
 
     @Override
@@ -27,3 +28,4 @@ public class BlogUserServiceImpl implements BlogUserService {
         return select;
     }
 }
+

@@ -6,15 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "article")
-public class Article {
+public class Article implements Serializable {
     @Id
     @GeneratedValue(generator = "JDBC")
     private Long articleId;
