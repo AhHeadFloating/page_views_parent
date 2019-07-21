@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DistributeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+    <module name="distribute" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.miaoyunhan.page_views.distribute.DistributeApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
