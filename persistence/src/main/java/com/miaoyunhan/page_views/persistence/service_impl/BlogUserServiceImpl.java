@@ -1,6 +1,5 @@
 package com.miaoyunhan.page_views.persistence.service_impl;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.miaoyunhan.api.entity.BlogUser;
 import com.miaoyunhan.api.service.BlogUserService;
 import com.miaoyunhan.page_views.persistence.mapper.BlogUserMpper;

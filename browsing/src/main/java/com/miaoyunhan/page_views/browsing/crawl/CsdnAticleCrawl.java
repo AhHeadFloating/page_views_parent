@@ -35,7 +35,7 @@ public class CsdnAticleCrawl extends BreadthCrawler {
     private String blogUserName;
     private BlogUser blogUser;
     public CsdnAticleCrawl(String crawlPath, boolean autoParse) throws Exception {
-        super(crawlPath, autoParse);
+        super("Crawler/"+crawlPath, autoParse);
         this.blogUserName = crawlPath;
         GetCsdnPagesCrawl getCsdnPagesCrawl = new GetCsdnPagesCrawl(this.blogUserName);
         Integer pages = getCsdnPagesCrawl.getPages();

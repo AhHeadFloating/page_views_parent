@@ -2,22 +2,15 @@ package com.miaoyunhan.page_views.browsing.mq;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.miaoyunhan.api.entity.Article;
-import com.miaoyunhan.api.entity.BlogUser;
 import com.miaoyunhan.api.entity.ProxyIp;
 import com.miaoyunhan.api.service.ArticleService;
 import com.miaoyunhan.api.service.BlogUserService;
-import com.miaoyunhan.page_views.browsing.crawl.CsdnAticleCrawl;
-import com.miaoyunhan.page_views.browsing.crawl.GetCsdnPagesCrawl;
 import com.miaoyunhan.page_views.browsing.utils.BrowseThreadUtil;
-import com.miaoyunhan.page_views.browsing.utils.BrowseUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ThreadUtils;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @Component

@@ -1,6 +1,5 @@
 package com.miaoyunhan.page_views.distribute.constant;
 
-import com.miaoyunhan.page_views.distribute.mq.MqUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
