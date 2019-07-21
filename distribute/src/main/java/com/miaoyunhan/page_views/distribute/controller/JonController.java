@@ -20,7 +20,7 @@ public class JonController {
     public Boolean startJob(String jobName){
         stopJob(jobName);
         JobConstant.scheduledFutureMap.get(jobName);
-        ScheduledFuture<?> future = threadPoolTaskScheduler.schedule(JobConstant.jobMap.get(jobName), new CronTrigger("0/5 * * * * *"));
+        ScheduledFuture<?> future = threadPoolTaskScheduler.schedule(JobConstant.jobMap.get(jobName), new CronTrigger("0/6 * * * * *"));
         JobConstant.scheduledFutureMap.put("wuYou",future);
         System.out.println("DynamicTask.startCron()");
         return true;
