@@ -17,21 +17,21 @@ import java.util.List;
 public class BrowsingApplicationTests {
 
 
-//    @Reference(check = false)
+    @Reference(check = false)
     private BlogUserService blogUserService;
 
 
     @Test
     public void Test1() throws Exception {
+        //删除数据库中关于这个博客的数据
+        int rows = blogUserService.delByUserName("bin2277904333");
         Long startTime = System.currentTimeMillis();
-        CsdnAticleCrawl shujian_tianya = new CsdnAticleCrawl("bin2277904333",true);
+        CsdnAticleCrawl shujian_tianya = new CsdnAticleCrawl("bin2277904333");
         shujian_tianya.start(1);
         System.out.println("==========================================");
         System.out.println((System.currentTimeMillis() - startTime)/1000);
         System.out.println("==========================================");
-        /*blogUserService = SpringUtil.getBean(BlogUserService.class);
-        List<BlogUser> select = blogUserService.select(new BlogUser());
-        System.out.println(select);*/
+
     }
 
 }

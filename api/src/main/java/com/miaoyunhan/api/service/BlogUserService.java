@@ -9,4 +9,6 @@ public interface BlogUserService {
     int insertSelective(BlogUser blogUser);
 
     List<BlogUser> select(BlogUser blogUser);
+
+    int delByUserName(String csdnUserName);
 }
