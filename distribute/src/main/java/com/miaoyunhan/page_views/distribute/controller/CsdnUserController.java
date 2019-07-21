@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class CsdnUserNameController {
+public class CsdnUserController {
 
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    @Reference
+    @Reference(check = false)
     private BlogUserService blogUserService;
 
     /**
@@ -31,6 +31,21 @@ public class CsdnUserNameController {
         return ResponseUtil.ok();
     }
 
+    /**
+     * 删除数据库中这个博客用户和下面的所有文章
+     * @param blogUserName
+     * @return
+     */
+    @RequestMapping(value = "delBlogUser")
+    public Object delBlogUser(String blogUserName){
+        int i = blogUserService.delByUserName(blogUserName);
+        return ResponseUtil.ok("删除了" + i + "条数据");
+    }
+
+    /**
+     * 返回当数据库中的所有博客用户
+     * @return
+     */
     @RequestMapping(value = "findAll")
     public Object findAll(){
         List<BlogUser> select = blogUserService.select(new BlogUser());
